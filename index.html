@@ -13,7 +13,7 @@
       --shadow:10px 10px 0 0 var(--ink); --radius:22px;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink)}
+    html,body{margin:0;background:var(--bg);color:var(--ink);scroll-behavior: smooth;}
     body{font-family:"Noto Sans KR", sans-serif}
     a{text-decoration:none; color:inherit}
 
@@ -34,18 +34,19 @@
 
     /* Section common */
     section{margin-top:42px}
-    .section-title{font-family:"Bebas Neue",sans-serif;font-size:44px;letter-spacing:1px;margin:0 0 14px;color:var(--ink);display:inline-block;background:var(--yellow);border:3px solid var(--ink);border-radius:14px;padding:6px 14px;box-shadow:4px 4px 0 0 var(--ink)}
+    .section-title{font-family:"Bebas Neue",sans-serif;font-size:44px;letter-spacing:1px;margin:0 0 20px;color:var(--ink);display:inline-block;background:var(--yellow);border:3px solid var(--ink);border-radius:14px;padding:6px 14px;box-shadow:4px 4px 0 0 var(--ink)}
 
     /* ABOUT */
-    .about{background:#fff;border:4px solid var(--ink);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);line-height:1.7}
-    .about p{margin-bottom:20px; font-weight:500; word-break: keep-all;}
-    .kv{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .about{background:#fff;border:4px solid var(--ink);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);line-height:1.8}
+    .about-text{font-size:16px; font-weight:500; word-break: keep-all;}
+    .about-text b{color:var(--pink); font-weight:900;}
+    .kv{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
     .badge{border:3px solid var(--ink);border-radius:999px;padding:8px 14px;background:#fff;font-weight:900;box-shadow:3px 3px 0 0 var(--ink)}
 
-    /* PORTFOLIO (No Margin Grid) */
+    /* PORTFOLIO GRID */
     .no-margin-grid{
       display:grid;
-      grid-template-columns:repeat(3,1fr);
+      grid-template-columns:repeat(2,1fr);
       border:4px solid var(--ink);
       border-radius:var(--radius);
       overflow:hidden;
@@ -61,9 +62,10 @@
     }
     .card:hover{ z-index: 10; transform: scale(1.02); }
     .thumb{aspect-ratio:16/9;background-size:cover;background-position:center;border-bottom:4px solid var(--ink)}
-    .inner{padding:20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
-    .inner h3{font-family:"Bebas Neue", sans-serif; font-size: 28px; margin:0 0 8px; letter-spacing: 1px;}
-    .btn{display:inline-block;padding:10px 14px;border:3px solid var(--ink);border-radius:12px;background:var(--pink);color:#fff;font-weight:900;box-shadow:4px 4px 0 0 var(--ink);text-align: center;}
+    .inner{padding:24px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;}
+    .inner h3{font-family:"Bebas Neue", sans-serif; font-size: 32px; margin:0 0 10px; letter-spacing: 1px;}
+    .inner p{font-size:15px; line-height:1.6; color:#444; margin-bottom:20px; font-weight:500;}
+    .btn{display:inline-block;padding:12px 16px;border:3px solid var(--ink);border-radius:14px;background:var(--pink);color:#fff;font-weight:900;box-shadow:4px 4px 0 0 var(--ink);text-align: center; cursor: pointer;}
 
     /* CONTACT */
     .contact{background:linear-gradient(135deg,#D7FBE8,#B6F2FF);border:4px solid var(--ink);border-radius:22px;padding:24px;box-shadow:var(--shadow)}
@@ -72,8 +74,7 @@
 
     footer{margin:32px 0 20px;text-align:center;opacity:.8;font-size:14px; font-weight: 700;}
 
-    @media (max-width:960px){ .no-margin-grid{grid-template-columns:1fr 1fr} }
-    @media (max-width:640px){ .no-margin-grid{grid-template-columns:1fr} .hero h1{font-size:52px} }
+    @media (max-width:960px){ .no-margin-grid{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
@@ -95,24 +96,23 @@
       <div class="chips">
         <span class="chip">Unity</span>
         <span class="chip">Unreal Engine</span>
-        <span class="chip pink">Blender</span>
-        <span class="chip green">Substance Painter</span>
+        <span class="chip" style="background: var(--pink); color:#fff;">Blender</span>
+        <span class="chip" style="background: var(--green);">Substance Painter</span>
       </div>
     </section>
 
     <section id="about">
       <h2 class="section-title">ABOUT</h2>
       <div class="about">
-        <p>
-          안녕하세요! 기술과 예술의 교차점에서 끊임없이 도전하는 **VR 크리에이터 김석윤**입니다. 남서울대학교 가상현실학과에서 전문성을 쌓는 동시에, **3D 디자인 과동아리의 회장**을 맡아 팀의 창의적인 프로젝트를 리드하고 있습니다. 단순히 학업에만 머물지 않고, **AI 활용 게임 개발, MR 컨텐츠, 버츄얼 프로덕션** 등 경계 없는 탐구와 도전을 즐깁니다.
-        </p>
-        <p>
-          특히 다수의 **공모전 참여**와 프로젝트 리딩을 통해 실전 감각을 익혔으며, 아트와 테크 사이의 브릿지 역할을 수행해 왔습니다. 멈추지 않는 활동력으로 가상 세계의 가능성을 계속해서 확장해 나가겠습니다!
-        </p>
+        <div class="about-text">
+          안녕하세요! <b>기술적 구현력과 시각적 예술성 사이의 균형</b>을 탐구하는 크리에이터 김석윤입니다. 남서울대학교 가상현실학과 4학년에 재학 중이며, <b>3D 디자인 과동아리 회장</b>으로서 팀의 창의적 성장을 리드하고 있습니다.
+          <br><br>
+          저는 단순히 툴을 다루는 것을 넘어 <b>'사용자 경험을 설계하는 디자인 전략'</b>을 핵심 가치로 둡니다. 실감 나는 공간 구현을 위해 정교한 <b>다이내믹 라이팅</b>을 설계하고, 기성 에셋보다는 공간의 정체성을 완성하는 프롭들을 <b>직접 제작</b>하여 프로젝트 고유의 톤앤매너를 완성합니다.
+        </div>
         <div class="kv">
-          <span class="badge">강점: 아트-테크 브릿지</span>
-          <span class="badge">강점: 3D 모델링 & 레벨 디자인</span>
-          <span class="badge">강점: 다채로운 프로젝트 경험</span>
+          <span class="badge">3D 모델링 & 레벨 디자인</span>
+          <span class="badge">직접 제작 기반 워크플로우</span>
+          <span class="badge">동아리 리더십</span>
         </div>
       </div>
     </section>
@@ -120,32 +120,43 @@
     <section id="projects">
       <h2 class="section-title">PORTFOLIO</h2>
       <div class="no-margin-grid">
+        
         <article class="card">
-          <div class="thumb" style="background-image:url('neon.png'); background-color: #eee;"></div>
+          <div class="thumb" style="background-image:url('neon.png');"></div>
           <div class="inner">
             <h3>Neon Arkanoid</h3>
-            <p style="margin:0 0 10px; font-size:14px; opacity:0.8;">클래식 아케이드 게임 제작.</p>
+            <p>직접 제작한 네온 에셋으로 시각적 타격감을 극대화하고, 정교한 물리 반사 알고리즘을 구현한 유니티 기반 2D 아케이드 게임입니다.</p>
             <a class="btn" href="https://www.game-ping.kr/games/neon-arkanoid" target="_blank">플레이 🤗</a>
           </div>
         </article>
 
         <article class="card">
-          <div class="thumb" style="background-image:url('fire.png'); background-color: #ddd;"></div>
+          <div class="thumb" style="background-image:url('cooking.png');"></div>
+          <div class="inner">
+            <h3>호올스의 요리비책</h3>
+            <p>초보 자취생을 대상으로 <b>사용자 친화적 UI</b>와 단계별 <b>동선 설계</b>를 적용하여 제작한 직관적인 요리 교육 가이드입니다.</p>
+            <a class="btn" href="https://www.youtube.com/watch?v=ZSQtzZ0J05Y" target="_blank" style="background: var(--pink);">시연 영상 🤗</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="thumb" style="background-image:url('fire.png');"></div>
           <div class="inner">
             <h3>Exit Zone : Fire</h3>
-            <p style="margin:0 0 10px; font-size:14px; opacity:0.8;">화재 대처 MR 시뮬레이션.</p>
+            <p>강렬한 <b>심부 발광 라이팅</b> 연출과 실재감을 높이는 <b>L자형 대피 동선</b>을 설계한 언리얼 엔진 기반의 MR 화재 시뮬레이션입니다.</p>
             <a class="btn" href="https://youtube.com/shorts/SPevowQVfV4" target="_blank">시연 영상 🤗</a>
           </div>
         </article>
 
         <article class="card">
-          <div class="thumb" style="background-image:url('third.png'); background-color: #ccc;"></div>
+          <div class="thumb" style="background-image:url('blender.png');"></div>
           <div class="inner">
             <h3>3D & Level Design</h3>
-            <p style="margin:0 0 10px; font-size:14px; opacity:0.8;">상세 작업 프로세스 및 모델링 로그.</p>
-            <a class="btn" href="https://www.figma.com/design/9YkWyzov5PwqtIZF29BBLk/%EA%B9%80%EC%84%9D%EC%9C%A4-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1&p=f&t=asXSN1qMsp1sEyuq-0" target="_blank" style="background: var(--blue);">링크 열기 ➔</a>
+            <p>직접 모델링한 하드서페이스 프롭과 <b>텍스처 타이링</b> 기법을 활용하여 공간의 밀도와 시각적 내러티브를 완성하는 작업 로그입니다.</p>
+            <a class="btn" href="https://www.figma.com/design/9YkWyzov5PwqtIZF29BBLk/%EA%B9%80%EC%84%9D%EC%9C%A4-%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4?node-id=0-1" target="_blank" style="background: var(--pink);">피그마 로그 보기 ➔</a>
           </div>
         </article>
+
       </div>
     </section>
 
@@ -154,12 +165,8 @@
       <div class="contact">
         <p style="font-weight:700;font-size:20px;margin:0;">협업 문의는 언제든 환영입니다! 🤗</p>
         <div class="row">
-          <a href="mailto:dod93247009@gmail.com" class="contact-item">
-            ✉️ 이메일: dod93247009@gmail.com
-          </a>
-          <a href="tel:01027216518" class="contact-item">
-            📞 연락처: 010-2721-6518
-          </a>
+          <a href="mailto:dod93247009@gmail.com" class="contact-item">✉️ dod93247009@gmail.com</a>
+          <a href="tel:01027216518" class="contact-item">📞 010-2721-6518</a>
         </div>
       </div>
     </section>
